@@ -2,14 +2,209 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Avenir UI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;400;700;800&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Mulish", sans-serif;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        header {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+
+        .main-container {
+            display: flex;
+            flex-direction: row;
+            height: 100vh;
+            width: 100%;
+            transition: all 0.5s ease-in-out;
+            position: relative;
+        }
+
+        .nav {
+            position: relative;
+            background-color: #fff;
+            z-index: 3;
+            width: 70px;
+            transition: all ease-in-out 0.5s;
+            border-right: 1px solid #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 25px 0px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+                rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+            flex-shrink: 0;
+        }
+
+        .hamburger {
+            width: 100%;
+            margin-top: 25px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 32px;
+            height: 3px;
+            background: #4f4f4f;
+            display: block;
+            margin: 6px auto;
+            border-radius: 25px;
+            transition: all ease-in-out 0.5s;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .fav {
+            width: 35px;
+            transition: all ease-in-out 0.5s;
+        }
+
+        .side-text {
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            font-size: 12px;
+            color: #100f0f;
+            text-align: center;
+            line-height: 1.8;
+            font-weight: 400;
+            transition: all ease-in-out 0.5s;
+        }
+
+        .nav:hover {
+            background-color: #e61d33;
+            cursor: pointer;
+        }
+
+        .nav:hover span {
+            background-color: #fff;
+        }
+
+        .nav:hover .fav {
+            filter: brightness(0) invert(1);
+        }
+
+        .nav:hover .side-text {
+            color: #fff;
+        }
+
+        .menu {
+            position: relative;
+            flex-shrink: 0;
+            width: 0;
+            overflow: hidden;
+            background-color: #e61d33;
+            transition: all ease-in-out 0.5s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .menu.open {
+            width: 500px;
+        }
+
+        .menu ul li a {
+            color: #fff;
+            font-size: 25px;
+            text-decoration: none;
+            margin: 15px 0px;
+            display: inline-block;
+            font-weight: 700;
+            transition: all ease-in-out 0.5s;
+        }
+
+        .menu ul li a:hover {
+            padding-left: 15px;
+        }
+
+        .banner-contant {
+            color: #fff;
+            position: absolute;
+            bottom: 20%;
+            left: 0;
+            right: 0;
+            text-align: center;
+            z-index: 1;
+            transition:
+                left 0.5s ease,
+                padding-left 0.5s ease,
+                text-align 0.5s ease;
+        }
+
+        .banner-contant h1 {
+            font-size: 150px;
+            font-weight: 800;
+            text-shadow: 2px 2px 15px #000;
+            line-height: 155px;
+            transition:
+                font-size 0.5s ease,
+                line-height 0.5s ease;
+        }
+
+        .banner-contant p {
+            font-size: 23px;
+            transition: font-size 0.5s ease;
+        }
+
+        .menu-open .banner-contant {
+            left: 570px;
+            text-align: left;
+            padding-left: 30px;
+        }
+
+        .menu-open .banner-contant h1 {
+            font-size: 100px;
+            line-height: 110px;
+        }
+
+        .menu-open .banner-contant p {
+            font-size: 18px;
+        }
+
+        .bannerimg {
+            flex-grow: 1;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .bannerimg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .menu-open .bannerimg {
+            flex: 1 1 calc(100% - 570px);
+            /* 70px nav + 500px menu */
+        }
+    </style>
 </head>
 
 <body>
-
     <header>
         <div class="main-container" id="main-container">
             <div class="nav">
@@ -18,17 +213,12 @@
                     <span></span>
                     <span></span>
                 </div>
-
                 <div class="side-text">
-                    <p>The Power Of Story For global PR, Marketing & Communications
-
-                    </p>
+                    <p>The Power Of Story For global PR, Marketing & Communications</p>
                 </div>
-
-                <img src="./fav.png" alt="" class="fav">
-
-
+                <img src="./fav.png" alt="" class="fav" />
             </div>
+
             <div class="menu" id="menu">
                 <ul>
                     <li><a href="#">Home</a></li>
@@ -38,33 +228,29 @@
                     <li><a href="#">Our Clients</a></li>
                 </ul>
             </div>
+
             <div class="banner-contant">
                 <h1>Avenir</h1>
-                <p>
-                    Accelerating growth through Marketing and Technology.
-                </p>
+                <p>Accelerating growth through Marketing and Technology.</p>
             </div>
+
             <div class="bannerimg">
-                <img src="/1.jpg" alt="">
+                <img src="/1.jpg" alt="Banner Image" />
             </div>
         </div>
-
     </header>
 
-
     <script>
-        let openMenu = () => {
-            let menu = document.getElementById("menu");
-            let hamburger = document.getElementById("hamburger");
-            let container = document.getElementById("main-container");
+        function openMenu() {
+            const menu = document.getElementById("menu");
+            const hamburger = document.getElementById("hamburger");
+            const container = document.getElementById("main-container");
 
             menu.classList.toggle("open");
             hamburger.classList.toggle("active");
-            container.classList.toggle("menu-open"); // ✅ triggers shrinking
-        };
-
+            container.classList.toggle("menu-open");
+        }
     </script>
-
 </body>
 
 </html>
