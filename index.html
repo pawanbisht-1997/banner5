@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="main-container" id="main-container">
+            <div class="nav">
+                <div class="hamburger" id="hamburger" onclick="openMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <div class="side-text">
+                    <p>The Power Of Story For global PR, Marketing & Communications
+
+                    </p>
+                </div>
+
+                <img src="./fav.png" alt="" class="fav">
+
+
+            </div>
+            <div class="menu" id="menu">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Why Us</a></li>
+                    <li><a href="#">Our Clients</a></li>
+                </ul>
+            </div>
+            <div class="banner-contant">
+                <h1>Avenir</h1>
+                <p>
+                    Accelerating growth through Marketing and Technology.
+                </p>
+            </div>
+            <div class="bannerimg">
+                <img src="/1.jpg" alt="">
+            </div>
+        </div>
+
+    </header>
+
+
+    <script>
+        let openMenu = () => {
+            let menu = document.getElementById("menu");
+            let hamburger = document.getElementById("hamburger");
+            let container = document.getElementById("main-container");
+
+            menu.classList.toggle("open");
+            hamburger.classList.toggle("active");
+            container.classList.toggle("menu-open"); // ✅ triggers shrinking
+        };
+
+    </script>
+
+</body>
+
+</html>
